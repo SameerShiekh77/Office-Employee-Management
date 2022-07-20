@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Office Employee Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+<div class="container">
+
+
+
+    <h1>Add Employee</h1>
+
+
+    <a class="btn btn-primary" href="/view_emp" role="button">View Employee</a>
+    <a class="btn btn-primary" href="/add_emp" role="button">Add New Employee</a>
+    <a class="btn btn-primary" href="/filter_emp" role="button">Filter Employee</a>
+
+
+    <form action="/add_emp" method="POST"> {% csrf_token %}
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" name="firstName" class="form-control" id="firstName">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" name="lastName" class="form-control" id="lastName">
+          </div>
+          <div class="mb-3">
+            
+            <label for="Department" class="form-label">Department</label>
+            <select class="form-select" id="Department" name="depart" aria-label="Default select example">
+                <option value="1">Central Head</option>
+                <option value="2">Faculty</option>
+                <option value="3">Networking</option>
+                <option value="4">HR</option>
+              </select>
+          </div>
+          <div class="mb-3">
+            <label for="Salary" class="form-label">Salary</label>
+            <input type="number" name="salary" class="form-control" id="Salary">
+          </div>
+          <div class="mb-3">
+            <label for="bonus" class="form-label">Bonus</label>
+            <input type="number" name="bonus" class="form-control" id="bonus">
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            
+            <select class="form-select" id="role" name="role" aria-label="Default select example">
+                <option value="1">Part Time Faculty</option>
+                <option value="2">Junior Faculty</option>
+                <option value="3">Central Head</option>
+                <option value="4">Manger</option>
+                <option value="5">Senior Networker</option>
+                <option value="6">Senior Faculty</option>
+              </select>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="number" name="phone" class="form-control" id="phone">
+          </div>
+          
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>  
+</body>
+</html>
