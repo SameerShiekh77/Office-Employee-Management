@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect, HttpResponse
 from .models import Role, Department, Employee
 from datetime import datetime
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -9,8 +10,12 @@ def index(request):
 
 def view_emp(request):
     emps = Employee.objects.all()
+    # pagination vofr
+    paginator = Paginator(emps,3)
+    page_number = request.GET.get('page')
+    finalPage = paginator.get_page(page_number)
     context = {
-        'emps':emps
+        'emps':finalPage
     }
     return render(request,"view_emp.html",context)
 

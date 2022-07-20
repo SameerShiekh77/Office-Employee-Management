@@ -51,7 +51,22 @@
          
         </tbody>
       </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if emps.has_previous %}
+          <li class="page-item"><a class="page-link" href="/view_emp/?page={{emps.previous_page_number}}">Previous</a></li>
+          {% endif %}
+          {% if emps|length > 10 %}
+          <li class="page-item"><a class="page-link" href="/view_emp/?page=1">1</a></li>
+          <li class="page-item"><a class="page-link" href="/view_emp/?page=2">2</a></li>
+          {% endif %}
+          {% if emps.has_next %}
+          
+          <li class="page-item"><a class="page-link" href="/view_emp/?page={{emps.next_page_number}}">Next</a></li>
+          {% endif %}
 
+        </ul>
+      </nav>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
