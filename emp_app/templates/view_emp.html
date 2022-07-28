@@ -58,7 +58,11 @@
           {% endif %}
           {% if emps|length > 10 %}
           <li class="page-item"><a class="page-link" href="/view_emp/?page=1">1</a></li>
+          {% endif %}
+          
+          {% if emps|length > 20 %}
           <li class="page-item"><a class="page-link" href="/view_emp/?page=2">2</a></li>
+          
           {% endif %}
           {% if emps.has_next %}
           
