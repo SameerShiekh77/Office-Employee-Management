@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.utils import timezone
 # Create your models here.
@@ -35,4 +36,4 @@ class Employee(models.Model):
     
     
     def __str__(self):
-        return self.first_name + " " +self.last_name
+
