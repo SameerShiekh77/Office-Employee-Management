@@ -1,3 +1,4 @@
+
 """off_emp_proj URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -21,3 +22,4 @@ urlpatterns = [
     path('',include('emp_app.urls')),
     path('',include('emp_api.urls')),
 ]
+
