@@ -1,6 +1,8 @@
 
+from tkinter import CASCADE
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Department(models.Model):
@@ -27,6 +29,7 @@ class Employee(models.Model):
     depart = models.ForeignKey(Department,on_delete=models.CASCADE)
     salary= models.IntegerField()
     bonus= models.IntegerField()
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
     phone= models.IntegerField()
     hireDate = models.DateTimeField(default=timezone.now)
@@ -36,4 +39,4 @@ class Employee(models.Model):
     
     
     def __str__(self):
-
+        return self.first_name
