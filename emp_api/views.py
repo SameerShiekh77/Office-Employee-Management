@@ -15,7 +15,7 @@ class PostUserWritePermission(BasePermission):
 
 
 class EmployeeList(generics.ListCreateAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdminUser]
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 

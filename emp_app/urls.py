@@ -19,5 +19,6 @@ urlpatterns = [
     path("filter_emp/",views.filter_emp,name='filter_emp'),
     path("sitemap.xml/",sitemap, {"sitemaps":sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     path("emp/<int:id>/",views.emp,name='emp'),
-    path("api-auth/",include('rest_framework.urls',namespace="rest_framework"))
+    path('accounts/login/',views.login,name='login')
+
 ]

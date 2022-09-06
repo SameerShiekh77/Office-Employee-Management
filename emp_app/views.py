@@ -1,14 +1,19 @@
+import imp
 from django.shortcuts import render,redirect, HttpResponse, get_object_or_404
 from .models import Role, Department, Employee
 from datetime import datetime
 from django.db.models import Q
 from django.core.paginator import Paginator
 
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def index(request):
     return render(request,"index.html")
 
+
 def view_emp(request):
+  
     emps = Employee.objects.all()
     # pagination vofr
     paginator = Paginator(emps,5)
@@ -19,7 +24,9 @@ def view_emp(request):
     }
     return render(request,"view_emp.html",context)
 
+@login_required
 def add_emp(request):
+    
     if request.method == 'POST':
         firstName = request.POST.get('firstName')
         lastName = request.POST.get('lastName')
@@ -40,11 +47,15 @@ def add_emp(request):
         
     return render(request,"add_emp.html")
 
+@login_required
 def dlt_emp(request,id):
+    
     empObj = Employee.objects.get(id=id)
     empObj.delete()
     return HttpResponse("Employee Deleted Successfully!! <br><a href='/view_emp'>Back to Employee List</a>")
 
+
+@login_required
 def filter_emp(request):
     if request.method == 'POST':
         fullname = request.POST.get('fullname')
@@ -74,4 +85,6 @@ def filter_emp(request):
 def emp(request):
     pass
 
-    
+
+def login(request):
+    return render(request, 'login.html')
