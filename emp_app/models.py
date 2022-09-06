@@ -3,6 +3,8 @@ from tkinter import CASCADE
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
+
 # Create your models here.
 
 class Department(models.Model):
@@ -40,3 +42,8 @@ class Employee(models.Model):
     
     def __str__(self):
         return self.first_name
+
+    def get_absolute_url(self):
+        return reverse("emp", args=[str(self.id)])
+        
+    

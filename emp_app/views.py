@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, HttpResponse
+from django.shortcuts import render,redirect, HttpResponse, get_object_or_404
 from .models import Role, Department, Employee
 from datetime import datetime
 from django.db.models import Q
@@ -11,7 +11,7 @@ def index(request):
 def view_emp(request):
     emps = Employee.objects.all()
     # pagination vofr
-    paginator = Paginator(emps,3)
+    paginator = Paginator(emps,5)
     page_number = request.GET.get('page')
     finalPage = paginator.get_page(page_number)
     context = {
@@ -65,7 +65,13 @@ def filter_emp(request):
     
     elif request.method == 'GET':
         return render(request,'filter_emp.html')
-    else:
-        return HttpResponse("An Exception Occurred")
+    # else:
+    #     return HttpResponse("An Exception Occurred")
     
     return render(request,"filter_emp.html")
+
+
+def emp(request):
+    pass
+
+    

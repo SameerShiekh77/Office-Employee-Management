@@ -9,8 +9,6 @@
   <body>
 <div class="container">
 
-
-
     <h1>Office Employee Management System</h1>
 
 
@@ -45,7 +43,7 @@
             <td>{{emp.role}}</td>
             <td>{{emp.phone}}</td>
             <td>{{emp.hireDate}}</td>
-            <td><a href="dlt_emp/{{emp.id}}">Delete</a></td>
+            <td><a href="/dlt_emp/{{emp.id}}/">Delete</a></td>
           </tr>
             {% endfor %}
          
@@ -55,16 +53,13 @@
         <ul class="pagination">
           {% if emps.has_previous %}
           <li class="page-item"><a class="page-link" href="/view_emp/?page={{emps.previous_page_number}}">Previous</a></li>
-          {% endif %}
-          {% if emps|length > 10 %}
-          <li class="page-item"><a class="page-link" href="/view_emp/?page=1">1</a></li>
-          {% endif %}
-          
-          {% if emps|length > 20 %}
+          {% elif emps|length > 4 %}
           <li class="page-item"><a class="page-link" href="/view_emp/?page=2">2</a></li>
           
-          {% endif %}
-          {% if emps.has_next %}
+          {% elif emps|length >= 5 %}
+          <li class="page-item"><a class="page-link" href="/view_emp/?page=3  ">3</a></li>
+          
+          {% elif emps.has_next %}
           
           <li class="page-item"><a class="page-link" href="/view_emp/?page={{emps.next_page_number}}">Next</a></li>
           {% endif %}
