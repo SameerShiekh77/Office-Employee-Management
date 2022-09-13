@@ -1,6 +1,6 @@
 from rest_framework import generics
 
-from emp_app.models import Employee
+from emp_app.models import Employee, Department
 
 from .serializers import EmployeeSerializer
 

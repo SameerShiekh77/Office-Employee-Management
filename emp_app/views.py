@@ -3,6 +3,7 @@ from .models import Role, Department, Employee
 from datetime import datetime
 from django.db.models import Q
 from django.core.paginator import Paginator
+from .forms import CreateUserForm
 
 # Create your views here.
 def index(request):
@@ -69,3 +70,17 @@ def filter_emp(request):
         return HttpResponse("An Exception Occurred")
     
     return render(request,"filter_emp.html")
+
+def login(request):
+    context = {}
+    return render(request,'login.html', context)
+
+def registration(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    context = {'form':form}
+    return render(request, 'registeration.html',context)
